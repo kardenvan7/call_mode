@@ -1,6 +1,7 @@
 name: call_mode
-description: A plugin for getting/listening to a current call mode
+description: A plugin for getting and listening to a current call mode
 version: 0.1.0
+repository: https://github.com/kardenvan7/call_mode
 
 environment:
   sdk: '>=3.1.3 <4.0.0'
@@ -9,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  plugin_platform_interface: 2.0.2
+  plugin_platform_interface: ^2.0.2
 
 dev_dependencies:
   mocktail: 1.0.3
