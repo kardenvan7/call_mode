@@ -18,15 +18,16 @@ class SubscriptionManager {
   bool _isWatcherActive = false;
 
   void addListener(void Function(CallMode) listener) {
-    _startWatcherIfNotActive();
-
     final prevSub = _hashToSub[listener.hashCode];
 
     if (prevSub != null) prevSub.cancel();
 
+    // ignore: cancel_subscriptions
     final newSub = _eventChannel.listen(listener);
 
     _hashToSub[listener.hashCode] = newSub;
+
+    _startWatcherIfNotActive();
   }
 
   void removeListener(void Function(CallMode) listener) {

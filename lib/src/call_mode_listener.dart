@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class CallModeListener extends StatefulWidget {
   const CallModeListener({
-    required this.child,
     required this.listener,
+    required this.child,
     super.key,
   });
 
@@ -16,13 +16,13 @@ class CallModeListener extends StatefulWidget {
 }
 
 class _CallModeListenerState extends State<CallModeListener> {
-  final CallModePlugin _detector = CallModePlugin.instance;
+  final CallModePlugin _plugin = CallModePlugin.instance;
 
   @override
   void initState() {
     super.initState();
     _getCallMode();
-    _detector.addListener(_onCallModeReceived);
+    _plugin.addListener(_onCallModeReceived);
   }
 
   void _onCallModeReceived(CallMode callMode) {
@@ -30,12 +30,12 @@ class _CallModeListenerState extends State<CallModeListener> {
   }
 
   void _getCallMode() {
-    _detector.getCallMode().then(_onCallModeReceived);
+    _plugin.getCallMode().then(_onCallModeReceived);
   }
 
   @override
   void dispose() {
-    _detector.removeListener(_onCallModeReceived);
+    _plugin.removeListener(_onCallModeReceived);
     super.dispose();
   }
 
