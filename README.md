@@ -10,14 +10,6 @@ There are currently implemented only following call modes:
 |----------------------------|-----------------------|----------------------------|
 | A call is currently active | Incoming call ringing | No active or ringing calls |
 
-## Platform implementations
-
-|            | Android                                                             | iOS                                                          |
-|------------|---------------------------------------------------------------------|--------------------------------------------------------------|
-| inProgress | `AudioManager.MODE_IN_CALL` or `AudioManager.MODE_IN_COMMUNICATION` | Any `CXCall` has hasEnded == false and hasConnected == true  |
-| ringing    | `AudioManager.MODE_RINGTONE`                                        | Any `CXCall` has hasEnded == false and hasConnected == false |
-| none       | Any other `AudioManager` mode                                       | No `CXCall`'s or all `CXCall`'s have hasEnded == true        |
-
 ## Getting Started
 
 - Add the plugin to your dependencies in `pubspec.yaml`
@@ -107,3 +99,11 @@ Use `CallModePlugin.instance.setListenerInterval(Duration duration)` method.
 This method will affect ***ALL*** listeners in your app, including ones that are used inside
 `CallModeBuilder`'s and `CallModeListener`'s. It is because there is only one state watcher
 on platform side.
+
+## Platform implementations
+
+|            | Android                                                             | iOS                                                          |
+|------------|---------------------------------------------------------------------|--------------------------------------------------------------|
+| inProgress | `AudioManager.MODE_IN_CALL` or `AudioManager.MODE_IN_COMMUNICATION` | Any `CXCall` has hasEnded == false and hasConnected == true  |
+| ringing    | `AudioManager.MODE_RINGTONE`                                        | Any `CXCall` has hasEnded == false and hasConnected == false |
+| none       | Any other `AudioManager` mode                                       | No `CXCall`'s or all `CXCall`'s have hasEnded == true        |
