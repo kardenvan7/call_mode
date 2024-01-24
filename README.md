@@ -38,7 +38,7 @@ You can get current call mode using `CallModePlugin.instance.getCallMode()` meth
 ### Listening to call mode changes
 There are 2 ways to listen to call mode changes
 
-1. Using `CallModePlugin`
+- Using `CallModePlugin`
 
     1. Add listener
 
@@ -60,7 +60,7 @@ There are 2 ways to listen to call mode changes
         }
         ```
 
-2. Using `CallModeListener` or `CallModeBuilder` widgets
+- Using `CallModeListener` or `CallModeBuilder` widgets
 
     - `CallModeListener`
         ```dart
